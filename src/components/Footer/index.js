@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { GitHub, Instagram, LinkedIn } from '@material-ui/icons';
+import { GitHub, Instagram, LinkedIn, Twitter } from '@material-ui/icons';
 
 class Footer extends Component {
     constructor(props) {
@@ -11,7 +11,8 @@ class Footer extends Component {
             <div className="footer">
                 <div className="footer__socials">
                     <ol>
-                        <li><a rel="noreferrer" href="https://instagram.com/rodrigov03/" target="_blank"><Instagram/></a></li>
+                        <li><a rel="noreferrer" href="https://instagram.com/rodrigov03" target="_blank"><Instagram/></a></li>
+                        <li><a rel="noreferrer" href="https://twitter.com/rventura03" target="_blank"><Twitter/></a></li>
                         <li><a rel="noreferrer" href="https://linkedin.com/in/rodrigov03" target="_blank"><LinkedIn/></a></li>
                         <li><a rel="noreferrer" href="https://github.com/rodrigov03" target="_blank"><GitHub/></a></li>
                     </ol>
