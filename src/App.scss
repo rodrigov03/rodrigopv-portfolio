@@ -5,24 +5,35 @@
   --lightgreen:#669280;
   --red: #863e3e;
 }
-
+html{
+    height: 100%;
+    min-height:100%;/* make sure it is at least as tall as the viewport */
+    position:relative;
+    margin:0;
+}
 body {
     padding: 0;
     margin: 0;
     font-family: 'Open Sans', sans-serif;
     background-color: #0a0e0d;
+    height:100%; 
 }
-
+div.grecaptcha-badge{
+    display: none !important;
+}
 .main {
-    position: relative;
-    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
 }
 .MuiCircularProgress-root{
     color: var(--green)
 }
 .homebg {
     position: relative;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-image: url('./assets/images/home.jpg');
     background-size: cover;
@@ -121,7 +132,6 @@ body {
     height: 100%;
 }
 
-
 .contactForm-Wrapper {
     background: #f3f3f3;
     position: absolute;
@@ -130,6 +140,8 @@ body {
     top: 0;
     right: 0;
     width: 60vw;
+    height: 100%;
+    min-height: 100%;
     min-height: 100%;
     -webkit-transition: all 0.5s ease-in-out;
     -moz-transition: all 0.5s ease-in-out;
@@ -141,20 +153,29 @@ body {
         right: -100%;
     }
     .closeContact{
-        position: absolute;
-        right: 15px;
-        top: 15px;
-    }
-    .contactForm-Inner {
-        height: 100%;
+        position: relative;
+        float: right;
+        cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 45px;
+        height: 40px;
+        background: #dadada;
+    }
+    .contactForm-Inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
         
         .contactForm {
             padding: 40px;
             width: 100%;
             max-width: 675px;
+            display: block;
+            height: auto;
         
             .formSubmit {
                 display: flex;
@@ -165,7 +186,7 @@ body {
                 display: flex;
         
                 .MuiFormControl-root {
-                width: 100%;
+                    width: 100%;
                 }
             }
             .formSubmit{
@@ -280,9 +301,16 @@ div.MuiFilledInput-underline:after {
 @media only screen and (max-width: 768px) {
     .contactForm-Wrapper{
         width: 100vw;
-        .contactForm-Inner .contactForm{
-            padding: 40px 20px;
-        }
+        .contactForm-Inner{
+            display: block;
+            height: 100%;
+            width: 100%;
+
+            .contactForm{
+                margin-top: 40px;
+                padding: 40px 20px;
+            }
+        } 
     }
     .footer{
         padding: 0 15px;

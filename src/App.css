@@ -6,16 +6,32 @@
   --red: #863e3e;
 }
 
+html {
+  height: 100%;
+  min-height: 100%;
+  /* make sure it is at least as tall as the viewport */
+  position: relative;
+  margin: 0;
+}
+
 body {
   padding: 0;
   margin: 0;
   font-family: 'Open Sans', sans-serif;
   background-color: #0a0e0d;
+  height: 100%;
+}
+
+div.grecaptcha-badge {
+  display: none !important;
 }
 
 .main {
-  position: relative;
-  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .MuiCircularProgress-root {
@@ -24,7 +40,7 @@ body {
 
 .homebg {
   position: relative;
-  height: 100vh;
+  height: 100%;
   width: 100%;
   background-image: url("./assets/images/home.jpg");
   background-size: cover;
@@ -138,6 +154,8 @@ body {
   top: 0;
   right: 0;
   width: 60vw;
+  height: 100%;
+  min-height: 100%;
   min-height: 100%;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
@@ -148,13 +166,9 @@ body {
 }
 
 .contactForm-Wrapper .closeContact {
-  position: absolute;
-  right: 15px;
-  top: 15px;
-}
-
-.contactForm-Wrapper .contactForm-Inner {
-  height: 100%;
+  position: relative;
+  float: right;
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -164,12 +178,31 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  width: 45px;
+  height: 40px;
+  background: #dadada;
+}
+
+.contactForm-Wrapper .contactForm-Inner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100%;
+  width: 100%;
 }
 
 .contactForm-Wrapper .contactForm-Inner .contactForm {
   padding: 40px;
   width: 100%;
   max-width: 675px;
+  display: block;
+  height: auto;
 }
 
 .contactForm-Wrapper .contactForm-Inner .contactForm .formSubmit {
@@ -321,7 +354,13 @@ div.MuiFilledInput-underline:after {
   .contactForm-Wrapper {
     width: 100vw;
   }
+  .contactForm-Wrapper .contactForm-Inner {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
   .contactForm-Wrapper .contactForm-Inner .contactForm {
+    margin-top: 40px;
     padding: 40px 20px;
   }
   .footer {

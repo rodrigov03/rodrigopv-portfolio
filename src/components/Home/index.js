@@ -29,8 +29,6 @@ import Footer from '../Footer'
             this.toggleForm = this.toggleForm.bind(this);
             this.handleChange = this.handleChange.bind(this);
             this.handleValidation = this.handleValidation.bind(this);
-            window.addEventListener('resize', this.handleResize)
-            
         }
         
         clearFields(){
@@ -161,21 +159,10 @@ import Footer from '../Footer'
                 //alert("Form has errors.")
             }
         }
-        handleResize = () => {
-            this.setState({
-                windowHeight: window.innerHeight
-            })
-        }
-        componentDidMount(){
-            this.setState({
-                windowHeight: window.innerHeight
-            })
-            console.log(window.innerHeight);
-        }
         render() {
         return (
-            <>
-                <Container fluid className="homebg p-0" style={{height: this.state.windowHeight + 'px'}}>
+            <div className="main">
+                <Container fluid className="homebg p-0">
                     <Container className="homeCont"> 
                     {/*<SideNav/>*/}
                         <div className="homeCont_wrapper">
@@ -193,8 +180,10 @@ import Footer from '../Footer'
                     <div className="close-right-side" onClick={this.toggleForm}></div>
                 )}
                 <div className="contactForm-Wrapper hide-right">
-                    <Close className="d-block d-md-none closeContact" onClick={this.toggleForm}/>
-                    <div className="contactForm-Inner" style={{height: this.state.windowHeight + 'px'}}>
+                    <div className="closeContact" onClick={this.toggleForm}>
+                        <Close/>
+                    </div>
+                    <div className="contactForm-Inner" >
                         <form className='contactForm' noValidate autoComplete="off" onSubmit={this.sendEmail}>
                             <Form.Group>
                                 <TextField className="mr-2" name="name" label="Name" onChange={this.handleChange} variant="filled" error={this.state.formvalidate.name[1]} value={this.state.formvalues.name} helperText={this.state.formvalidate.name[0]} required/>
@@ -217,7 +206,7 @@ import Footer from '../Footer'
                         </form>
                     </div>
                 </div>
-            </>
+            </div>
             
         )
     }
